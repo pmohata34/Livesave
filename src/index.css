@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Outfit", sans-serif;
+  --font-title: "Syne", "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #030303;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+}
+
+/* Cosmic Slithering Ambient Background Mesh */
+.ambient-slither-bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 10% 20%, rgba(220, 38, 38, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 40%);
+  animation: slitherBg 25s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes slitherBg {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-5%, 4%) rotate(3deg) scale(1.05);
+  }
+  100% {
+    transform: translate(3%, -3%) rotate(-3deg) scale(0.98);
+  }
+}
+
+/* Revolving Ambient Aura Rotation */
+@keyframes revolveAura {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-revolve {
+  animation: revolveAura 12s linear infinite;
+}
+
+/* Shimmer gradient line */
+.gradient-shimmer {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ef4444, #f59e0b, #3b82f6);
+  background-size: 200% auto;
+  animation: shimmerFlow 6s linear infinite;
+}
+
+@keyframes shimmerFlow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Elegant pop-up entry */
+.animate-popup {
+  animation: popUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Custom scrollbar and custom subtle animation helper */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
